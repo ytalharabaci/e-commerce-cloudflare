@@ -93,7 +93,9 @@ namespace_id = "1102"
 simple = { limit = 30, period = 60 }
 
 [env.staging.triggers]
-crons = [ "0 2 * * *" ] # Everyday at 02:00 AM UTC
+# No cron on staging: the Workers Free plan allows 5 cron triggers per account,
+# and the only job (sitemap cache warm-up) matters for production alone.
+crons = []
 
 # ========================================================
 # 🚀 Production — deployed from the `production` branch
